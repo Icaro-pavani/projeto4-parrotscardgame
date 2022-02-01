@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #eef9bf;
+}
+
+h1 {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 66px;
+  letter-spacing: -0.004em;
+  color: #75b79e;
+  text-align: center;
+  margin: 40px auto;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 45px;
+}
+
+.parrot {
+  min-width: 117px;
+  min-height: 146px;
+  background-color: #a7e9af;
+  border: 1px solid #99cea8;
+  border-radius: 5px;
+  margin: 0px 17px 34px 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+}
+
+.card {
+  width: 117px;
+  height: 146px;
+  position: relative;
+  margin: 0px 17px 34px 17px;
+}
+
+.face {
+  width: 100%;
+  height: 100%;
+  background-color: #a7e9af;
+  border: 1px solid #99cea8;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: all 0.5s;
+  transform-style: preserve-3d;
+}
+
+.back-face {
+  transform: rotateY(180deg);
+}
+
+.card:hover .back-face {
+  transform: rotateY(0deg);
+}
+
+.card:hover .front-face {
+  transform: rotateY(-180deg);
+}

@@ -49,6 +49,8 @@ main {
   height: 146px;
   position: relative;
   margin: 0px 17px 34px 17px;
+  transition: all 0.5s;
+  transform-style: preserve-3d;
 }
 
 .face {
@@ -71,10 +73,14 @@ main {
   transform: rotateY(180deg);
 }
 
-.card:hover .back-face {
+.flip {
+    transform: rotateY(180deg);
+}
+
+/* .card:hover .back-face {
   transform: rotateY(0deg);
 }
 
 .card:hover .front-face {
   transform: rotateY(-180deg);
-}
+} */

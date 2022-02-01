@@ -15,6 +15,9 @@ function checkNumberCards() {
             cardBack = document.createElement('div');
             image = document.createElement('img');
             card.classList.add('card');
+            card.addEventListener('click', function() {
+                this.classList.toggle('flip');
+            });
             cardFront.classList.add('front-face');
             cardFront.classList.add('face');
             cardBack.classList.add('back-face');
@@ -23,8 +26,13 @@ function checkNumberCards() {
             card.appendChild(cardFront).appendChild(image);
             card.appendChild(cardBack);
             document.querySelector('main').appendChild(card);
+
         }
     }
+}
+
+function flip(element){
+    element.classList.toggle('flip');
 }
 
 document.addEventListener("waiting", checkNumberCards()); 

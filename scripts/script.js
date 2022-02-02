@@ -1,6 +1,8 @@
 let numberOfCards = 8;//prompt("Quantas cartas você deseja? (números de 4 à 14 pares)");
 let flipCardCount = 0;
 let cardArray = [];
+let cardValue = null;
+let flippedCard = null;
 
 function shuffle() {
     return Math.random() - 0.5;
@@ -14,6 +16,23 @@ function shuffleCard(numberCard) {
     console.log(cardArray);
     cardArray.sort(shuffle);
     console.log(cardArray);
+}
+
+function checkPair(element) {
+    if (flipCardCount % 2 !== 0){
+        flippedCard = element;
+        console.log(flippedCard.getElementsByTagName('img')[1].alt)
+    } else {
+        if (flippedCard.getElementsByTagName('img')[1].alt === element.getElementsByTagName('img')[1].alt){
+            flippedCard = null;
+
+        } else {
+            setTimeout(function() {
+                flippedCard.classList.remove('flip');
+                element.classList.remove('flip');
+            }, 1000);
+        }
+    }
 }
 
 function checkNumberCards() {
@@ -36,7 +55,12 @@ function checkNumberCards() {
             card.classList.add('card');
             cardFront.classList.add('front-face');
             card.addEventListener('click', function() {
-                this.classList.add('flip');
+                if (!this.classList.contains('flip')){
+                    this.classList.add('flip');
+                    flipCardCount += 1;
+                }
+                console.log(flipCardCount);
+                checkPair(this);
             });
             cardFront.classList.add('face');
             cardBack.classList.add('back-face');
@@ -45,6 +69,7 @@ function checkNumberCards() {
             card.appendChild(cardFront).appendChild(imageFront);
             card.appendChild(cardBack);
             imageBack.setAttribute('src', `imagens/parrot${cardArray[i]}.gif`);
+            imageBack.setAttribute('alt', `parrot${cardArray[i]}`);
             card.appendChild(cardBack).appendChild(imageBack);
             document.querySelector('main').appendChild(card);
         }

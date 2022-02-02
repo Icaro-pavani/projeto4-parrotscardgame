@@ -76,4 +76,4 @@ function checkNumberCards() {
     }
 }
 
-document.addEventListener("waiting", checkNumberCards(), false); 
+checkNumberCards();

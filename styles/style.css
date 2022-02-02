@@ -72,10 +72,14 @@ main {
 
 .back-face {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
 }
 
 .flip {
     transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
 }
 
 @media (max-width: 600px){

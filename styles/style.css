@@ -11,6 +11,8 @@ body {
 }
 
 h1 {
+  width: 540px;
+  height: 63px;
   font-size: 56px;
   font-weight: 700;
   line-height: 66px;
@@ -76,10 +78,23 @@ main {
     transform: rotateY(180deg);
 }
 
-/* .card:hover .back-face {
-  transform: rotateY(0deg);
-}
+@media (max-width: 600px){
+  main {
+    display: block;
+  }
 
-.card:hover .front-face {
-  transform: rotateY(-180deg);
-} */
+  .header {
+    width: 100%;
+  }
+
+  h1 {
+    max-width: 312px;
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

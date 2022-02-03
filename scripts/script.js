@@ -1,4 +1,4 @@
-let numberOfCards = 8;//prompt("Quantas cartas você deseja? (números de 4 à 14 pares)");
+let numberOfCards = prompt("Quantas cartas você deseja? (números de 4 à 14 pares)");
 let flipCardCount = 0;
 let cardArray = [];
 let cardValue = null;
@@ -27,11 +27,23 @@ function checkPair(element) {
             flippedCard = null;
 
         } else {
+            document.body.style.pointerEvents = 'none';
             setTimeout(function() {
                 flippedCard.classList.remove('flip');
                 element.classList.remove('flip');
+                document.body.style.pointerEvents = 'auto';
             }, 1000);
         }
+    }
+}
+
+function endGame() {
+    const flipped = document.querySelectorAll('.flip');
+    console.log(flipped.length);
+    if (flipped.length === parseInt(numberOfCards)){
+        setTimeout(function() {
+            alert(`Você ganhou em ${flipCardCount} jogadas!`);
+        }, 300);
     }
 }
 
@@ -61,6 +73,7 @@ function checkNumberCards() {
                 }
                 console.log(flipCardCount);
                 checkPair(this);
+                endGame();
             });
             cardFront.classList.add('face');
             cardBack.classList.add('back-face');

@@ -3,6 +3,9 @@ let flipCardCount = 0;
 let cardArray = [];
 let cardValue = null;
 let flippedCard = null;
+let seconds = 0;
+const counter = document.querySelector('h2');
+let cancel = null;
 
 function shuffle() {
     return Math.random() - 0.5;
@@ -42,10 +45,17 @@ function endGame() {
     console.log(flipped.length);
     if (flipped.length === parseInt(numberOfCards)){
         setTimeout(function() {
-            alert(`Você ganhou em ${flipCardCount} jogadas!`);
+            clearInterval(cancel);
+            alert(`Você ganhou em ${flipCardCount} jogadas e em ${seconds}!`);
         }, 300);
     }
 }
+
+function secondsCount() {
+    seconds += 1;
+    counter.innerHTML = seconds;
+}
+
 
 function checkNumberCards() {
     if (numberOfCards < 4 || numberOfCards > 14 || numberOfCards % 2 !== 0){
@@ -57,6 +67,7 @@ function checkNumberCards() {
         let cardBack = null;
         let imageFront = null;
         let imageBack = null;
+        cancel = setInterval(secondsCount, 1000);
         shuffleCard(numberOfCards);
         for (let i = 0; i < numberOfCards; i++){
             card = document.createElement('div');

@@ -24,9 +24,9 @@ function shuffleCard(numberCard) {
 function checkPair(element) {
     if (flipCardCount % 2 !== 0){
         flippedCard = element;
-        console.log(flippedCard.getElementsByTagName('img')[1].alt)
+        console.log(flippedCard.getElementsByTagName('img')[0].alt)
     } else {
-        if (flippedCard.getElementsByTagName('img')[1].alt === element.getElementsByTagName('img')[1].alt){
+        if (flippedCard.getElementsByTagName('img')[0].alt === element.getElementsByTagName('img')[0].alt){
             flippedCard = null;
 
         } else {
@@ -76,6 +76,7 @@ function checkNumberCards() {
             imageFront = document.createElement('img');
             imageBack = document.createElement('img');
             card.classList.add('card');
+            card.setAttribute('data-identifier', 'card');
             cardFront.classList.add('front-face');
             card.addEventListener('click', function() {
                 if (!this.classList.contains('flip')){
@@ -87,13 +88,15 @@ function checkNumberCards() {
                 endGame();
             });
             cardFront.classList.add('face');
+            cardFront.setAttribute('data-identifier', 'front-face');
             cardBack.classList.add('back-face');
             cardBack.classList.add('face');
-            imageFront.setAttribute('src', 'imagens/front.png');
+            cardBack.setAttribute('data-identifier', 'back-face');
+            imageBack.setAttribute('src', 'imagens/front.png');
             card.appendChild(cardFront).appendChild(imageFront);
             card.appendChild(cardBack);
-            imageBack.setAttribute('src', `imagens/parrot${cardArray[i]}.gif`);
-            imageBack.setAttribute('alt', `parrot${cardArray[i]}`);
+            imageFront.setAttribute('src', `imagens/parrot${cardArray[i]}.gif`);
+            imageFront.setAttribute('alt', `parrot${cardArray[i]}`);
             card.appendChild(cardBack).appendChild(imageBack);
             document.querySelector('main').appendChild(card);
         }

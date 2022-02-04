@@ -78,7 +78,7 @@ main {
   transform-style: preserve-3d;
 }
 
-.back-face {
+.front-face {
   transform: rotateY(180deg);
   /* -webkit-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg); */

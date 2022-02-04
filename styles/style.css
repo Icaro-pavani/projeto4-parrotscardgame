@@ -10,6 +10,10 @@ body {
   background-color: #eef9bf;
 }
 
+.disable {
+  pointer-events: none;
+}
+
 h1 {
   width: 540px;
   height: 63px;

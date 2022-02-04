@@ -34,6 +34,8 @@ function checkPair(element) {
             setTimeout(function() {
                 flippedCard.classList.remove('flip');
                 element.classList.remove('flip');
+                flippedCard.classList.remove('disable');
+                element.classList.remove('disable');
                 document.body.style.pointerEvents = 'auto';
             }, 1000);
         }
@@ -41,10 +43,11 @@ function checkPair(element) {
 }
 
 function resetGame() {
-    flipCardCount = 0;
-    seconds = 0;
-    let resetMessage = prompt('Quer jogar novamente? (s ou n)');
-    if (resetMessage.toLowerCase() === 's'){
+    let resetMessage = prompt('Quer jogar novamente? (s ou n)') || 'n';
+    if (resetMessage.toLowerCase() === 's' && resetMessage !== null){
+        flipCardCount = 0;
+        seconds = 0;
+        cardArray = [];
         numberOfCards = prompt("Quantas cartas você deseja? (números de 4 à 14 pares)");
         document.querySelector('main').innerHTML = '';
         checkNumberCards();
@@ -57,7 +60,7 @@ function endGame() {
     if (flipped.length === parseInt(numberOfCards)){
         setTimeout(function() {
             clearInterval(cancel);
-            alert(`Você ganhou em ${flipCardCount} jogadas e em ${seconds}!`);
+            alert(`Você ganhou em ${flipCardCount} jogadas e em ${seconds} segundos!`);
             resetGame();
         }, 500);
     }
@@ -93,6 +96,7 @@ function checkNumberCards() {
             card.addEventListener('click', function() {
                 if (!this.classList.contains('flip')){
                     this.classList.add('flip');
+                    this.classList.add('disable');
                     flipCardCount += 1;
                 }
                 console.log(flipCardCount);

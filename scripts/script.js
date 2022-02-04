@@ -40,6 +40,17 @@ function checkPair(element) {
     }
 }
 
+function resetGame() {
+    flipCardCount = 0;
+    seconds = 0;
+    let resetMessage = prompt('Quer jogar novamente? (s ou n)');
+    if (resetMessage.toLowerCase() === 's'){
+        numberOfCards = prompt("Quantas cartas você deseja? (números de 4 à 14 pares)");
+        document.querySelector('main').innerHTML = '';
+        checkNumberCards();
+    }
+}
+
 function endGame() {
     const flipped = document.querySelectorAll('.flip');
     console.log(flipped.length);
@@ -47,7 +58,8 @@ function endGame() {
         setTimeout(function() {
             clearInterval(cancel);
             alert(`Você ganhou em ${flipCardCount} jogadas e em ${seconds}!`);
-        }, 300);
+            resetGame();
+        }, 500);
     }
 }
 

@@ -33,7 +33,7 @@ h1 {
 
 /* Formatação do contador de segundos */
 h2 {
-  font-size: 48px;
+  font-size: 38px;
   text-align: right;
   margin-right: 50px;
   color: red;
@@ -104,6 +104,10 @@ main {
     max-width: 312px;
     font-size: 36px;
     line-height: 42px;
+  }
+
+  h2 {
+    font-size: 30px;
   }
 
   .card {

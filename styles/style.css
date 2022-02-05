@@ -47,19 +47,6 @@ main {
   margin-top: 45px;
 }
 
-
-/* .parrot {
-  min-width: 117px;
-  min-height: 146px;
-  background-color: #a7e9af;
-  border: 1px solid #99cea8;
-  border-radius: 5px;
-  margin: 0px 17px 34px 17px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-
 /* Tamanho da imagem na carta */
 .card img {
   width: 100px;
